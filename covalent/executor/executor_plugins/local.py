@@ -83,6 +83,8 @@ class LocalExecutor(BaseExecutor):
             ]:
                 base_kwargs[key] = kwargs[key]
 
+        super().__init__(**base_kwargs)
+
     def execute(
         self,
         function: TransportableObject,
