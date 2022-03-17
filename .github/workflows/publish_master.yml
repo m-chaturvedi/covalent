@@ -71,8 +71,6 @@ jobs:
           context: .
           file: ./Dockerfile
           platforms: linux/amd64,linux/arm64
-          if: github.ref == 'refs/heads/master'
-            echo 'Building image from the ${{ github.ref }} branch'
           push: true
           tags: |
             ${{ secrets.AWS_ECR_TEST_REPO }}:latest
@@ -94,10 +92,8 @@ jobs:
           context: .
           file: ./Dockerfile
           platforms: linux/amd64,linux/arm64
-          if: github.ref == 'refs/heads/master'
-            echo 'Building image from the ${{ github.ref }} branch'
           push: true
           tags: |
             ${{ secrets.AWS_ECR_REPO }}:latest
-            ${{ secrets.AWS_ECR_TEST_REPO }}:${{ env.TAG }}
+            ${{ secrets.AWS_ECR_REPO }}:${{ env.TAG }}
 
