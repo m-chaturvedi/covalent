@@ -73,7 +73,7 @@ jobs:
           platforms: linux/amd64,linux/arm64
           push: true
           tags: |
-            ${{ secrets.AWS_ECR_TEST_REPO }}
+            ${{ secrets.AWS_ECR_DEV_REPO }}:latest
       - name: Run image from test repo
         run: |
           docker pull ${{ secrets.AWS_ECR_TEST_REPO }}:latest
